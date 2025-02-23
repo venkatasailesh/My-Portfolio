@@ -1,0 +1,57 @@
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html{
+    scroll-behavior: smooth;
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+/* all similar content styling codes */
+section{
+    padding: 100px 0;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.about, .skills,.teams, .contact,.skills-container, .footer{
+    font-family: 'Poppins', sans-serif;
+}
+.about .about-content,
+
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+  
+
+
+  
+  
+  
+  
+  
+
