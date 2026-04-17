@@ -6,7 +6,7 @@ const shimmer = {
         transition: {
             duration: 1.8,
             repeat: Infinity,
-            ease: 'linear',
+            ease: 'linear' as const,
         },
     },
 }
