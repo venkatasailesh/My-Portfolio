@@ -60,12 +60,11 @@ function App() {
                                 <Terminal size={18} className="text-accent" />
                                 <span className="font-display font-medium text-lg tracking-tight">Sailesh<span className="text-text-2">.dev</span></span>
                                 <span className="text-text-2 text-sm">·</span>
-                                <span className="text-text-2 text-xs">Crafted with care</span>
                             </div>
                             <div className="flex gap-6">
                                 {[
                                     { label: 'GitHub', href: 'https://github.com/venkatasailesh' },
-                                    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/venkata-sailesh-27b0b11bb' },
+                                    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/venkatasailesh28' },
                                     { label: 'Email', href: 'mailto:vvenkatasailesh@gmail.com' },
                                 ].map((l) => (
                                     <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"

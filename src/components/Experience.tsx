@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
 import { Briefcase, Calendar, MapPin, ArrowUpRight } from 'lucide-react'
 import TiltCard from './TiltCard'
+import { lazy, Suspense } from 'react'
+
+const CityBackground = lazy(() => import('./CityBackground'))
 
 const SPGlobalLogo = ({ className = '' }: { className?: string }) => (
     <svg viewBox="0 0 60 40" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,8 +47,12 @@ const experiences = [
 
 const Experience = () => {
     return (
-        <section id="experience" className="py-24 px-6 md:px-12">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="experience" className="py-24 px-6 md:px-12 relative overflow-hidden">
+            {/* 3D Corporate City Background */}
+            <Suspense fallback={null}>
+                <CityBackground />
+            </Suspense>
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

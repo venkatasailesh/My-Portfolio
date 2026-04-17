@@ -1,12 +1,19 @@
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { lazy, Suspense } from 'react'
 import { Zap, Wrench, Package } from 'lucide-react'
 import TiltCard from './TiltCard'
 
+const NeuralNetwork = lazy(() => import('./NeuralNetwork'))
+
 const About = () => {
     return (
-        <section id="about" className="py-24 px-6 md:px-12">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="about" className="py-24 px-6 md:px-12 relative overflow-hidden">
+            {/* 3D Neural Network Background */}
+            <Suspense fallback={null}>
+                <NeuralNetwork />
+            </Suspense>
+
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -54,9 +61,9 @@ const About = () => {
                         <span className="text-[10px] tracking-[0.3em] uppercase text-accent font-bold mb-5 block">What I Do</span>
                         <div className="space-y-4">
                             {[
-                                { icon: Zap, text: 'Full-stack web development', color: 'text-accent bg-accent/10' },
-                                { icon: Wrench, text: 'API design & microservices', color: 'text-sky bg-sky/10' },
-                                { icon: Package, text: 'DevOps & containerization', color: 'text-lavender bg-lavender/10' },
+                                { icon: Zap,     text: 'Full-stack web development',  color: 'text-accent bg-accent/10' },
+                                { icon: Wrench,  text: 'API design & microservices',   color: 'text-sky bg-sky/10' },
+                                { icon: Package, text: 'DevOps & containerization',    color: 'text-lavender bg-lavender/10' },
                             ].map((item) => (
                                 <div key={item.text} className="flex items-center gap-3 text-text-2 text-sm">
                                     <div className={`w-8 h-8 rounded-lg ${item.color} flex items-center justify-center`}>

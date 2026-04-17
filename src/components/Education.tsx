@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
-
+import { lazy, Suspense } from 'react'
 import TiltCard from './TiltCard'
 import { GraduationCap, BookOpen, School } from 'lucide-react'
+
+const Orrery = lazy(() => import('./Orrery'))
 
 const education = [
     { title: 'Computer Science and Engineering', place: 'Sri Venkateswara Engineering College', year: '2020 – 2024', cgpa: '8.4', accent: 'text-accent', bg: 'bg-accent/10', icon: GraduationCap },
@@ -12,8 +13,12 @@ const education = [
 
 const Education = () => {
     return (
-        <section id="education" className="py-24 px-6 md:px-12">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="education" className="py-24 px-6 md:px-12 relative overflow-hidden">
+            {/* 3D Solar System Orrery Background */}
+            <Suspense fallback={null}>
+                <Orrery />
+            </Suspense>
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}

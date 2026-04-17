@@ -1,14 +1,21 @@
 import { motion } from 'framer-motion'
-import { useRef } from 'react'
+import { lazy, Suspense } from 'react'
 import { Mail, MapPin, Github, Linkedin, Send, ArrowUpRight } from 'lucide-react'
 import TiltCard from './TiltCard'
+
+const WaveTerrain = lazy(() => import('./WaveTerrain'))
 
 const Contact = () => {
     const inputClass = "w-full bg-dark-3/50 border border-dark-4 rounded-xl px-5 py-4 text-text-1 text-sm outline-none focus:border-accent/50 focus:bg-accent/[0.03] transition-all duration-200 placeholder:text-text-2"
 
     return (
-        <section id="contact" className="py-24 px-6 md:px-12">
-            <div className="max-w-[1400px] mx-auto">
+        <section id="contact" className="py-24 px-6 md:px-12 relative overflow-hidden">
+            {/* 3D Wave Terrain Background */}
+            <Suspense fallback={null}>
+                <WaveTerrain />
+            </Suspense>
+
+            <div className="max-w-[1400px] mx-auto relative z-10">
                 <motion.span
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -67,7 +74,7 @@ const Contact = () => {
                                     GitHub
                                     <ArrowUpRight size={12} />
                                 </a>
-                                <a href="https://www.linkedin.com/in/venkata-sailesh-27b0b11bb" target="_blank" rel="noopener noreferrer"
+                                <a href="https://www.linkedin.com/in/venkatasailesh28" target="_blank" rel="noopener noreferrer"
                                     className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-dark-3 border border-dark-4 text-xs text-text-1 hover:text-accent hover:border-accent/30 transition-all">
                                     <Linkedin size={14} />
                                     LinkedIn

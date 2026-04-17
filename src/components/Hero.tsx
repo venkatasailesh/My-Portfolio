@@ -1,13 +1,27 @@
-import { motion } from 'framer-motion'
 import AntigravityText from './AntigravityText'
 import AnimatedCounter from './AnimatedCounter'
 import TiltCard from './TiltCard'
 import CanvasParticles from './CanvasParticles'
+import NoiseSphere from './NoiseSphere'
 import { MapPin, ArrowDown } from 'lucide-react'
 
 const Hero = () => (
     <section id="hero" className="min-h-screen relative overflow-hidden bg-dark">
+        {/* Starfield background */}
         <CanvasParticles />
+
+        {/* Abstract noise sphere floating on the right */}
+        <div
+            className="absolute top-1/2 right-0 -translate-y-1/2 w-[55%] h-[80%] z-[1] pointer-events-none hidden md:block"
+            style={{
+                maskImage: 'radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%)',
+                WebkitMaskImage: 'radial-gradient(ellipse at 60% 50%, black 20%, transparent 70%)',
+            }}
+        >
+            <NoiseSphere />
+        </div>
+
+        {/* Layer 3: Content */}
         <div className="max-w-[1400px] w-full mx-auto relative z-10 px-6 md:px-12 pt-32 pb-16 pointer-events-none">
 
             <div className="pointer-events-auto w-max">
@@ -46,16 +60,14 @@ const Hero = () => (
                     transition={{ duration: 0.7, delay: 1.15 }}
                     className="bento p-6 md:p-8 md:col-span-5 flex flex-col justify-center items-center relative overflow-hidden group min-h-[160px]"
                 >
-                    {/* Subtle glow behind stats */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
                     <div className="flex gap-8 md:gap-12 w-full justify-center relative z-10">
                         {[
                             { n: 2, s: '', l: 'Years Experience' },
                             { n: 10, s: '+', l: 'Projects' },
                         ].map((s) => (
                             <div key={s.l} className="flex flex-col items-center text-center">
-                                <p className={`font-display font-black text-5xl sm:text-6xl md:text-7xl text-white tracking-tighter`}>
+                                <p className="font-display font-black text-5xl sm:text-6xl md:text-7xl text-white tracking-tighter">
                                     <AnimatedCounter end={s.n} suffix={s.s} duration={2000} />
                                 </p>
                                 <p className="text-[10px] sm:text-xs md:text-sm text-text-3 uppercase tracking-widest mt-2">{s.l}</p>
